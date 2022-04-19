@@ -92,6 +92,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="In th&#x1ed1;ng k&#xea;"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="IN245ActionPerformed"/>
+      </Events>
     </Component>
     <Container class="javax.swing.JScrollPane" name="jScrollPane1">
       <AuxValues>

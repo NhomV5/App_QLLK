@@ -53,6 +53,11 @@ public class IDT extends javax.swing.JFrame {
         Back245.setText("Hệ thống");
 
         IN245.setText("In thống kê");
+        IN245.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                IN245ActionPerformed(evt);
+            }
+        });
 
         jTable245.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -155,6 +160,12 @@ public class IDT extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void IN245ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IN245ActionPerformed
+        // TODO add your handling code here:
+        new BaoCao().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_IN245ActionPerformed
 
     /**
      * @param args the command line arguments

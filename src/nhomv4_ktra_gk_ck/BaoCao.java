@@ -84,6 +84,11 @@ public class BaoCao extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jTable245);
 
         In245.setText("In");
+        In245.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                In245ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -127,6 +132,10 @@ public class BaoCao extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void In245ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_In245ActionPerformed
+        // TODO add your handling code he
+    }//GEN-LAST:event_In245ActionPerformed
 
     /**
      * @param args the command line arguments
