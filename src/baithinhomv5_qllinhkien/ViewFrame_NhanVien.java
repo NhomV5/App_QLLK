@@ -10,7 +10,7 @@ package baithinhomv5_qllinhkien;
  * @author NGUYEN HAI LUAN
  */
 public class ViewFrame_NhanVien extends javax.swing.JFrame {
-
+    private trangchuchinhnhanvien Trangchuchinhnhanvien;
     /**
      * Creates new form ViewFrame_NhanVien
      */
@@ -29,18 +29,18 @@ public class ViewFrame_NhanVien extends javax.swing.JFrame {
 
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-        jTextField6 = new javax.swing.JTextField();
-        jTextField7 = new javax.swing.JTextField();
+        maLinhKien227 = new javax.swing.JTextField();
+        tenLinhKien = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
-        jTextField8 = new javax.swing.JTextField();
+        loaiLinhKien227 = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
-        jTextField9 = new javax.swing.JTextField();
-        jTextField10 = new javax.swing.JTextField();
+        gia227 = new javax.swing.JTextField();
+        sl227 = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
-        traCuuButton228 = new javax.swing.JButton();
-        quayLaiButton228 = new javax.swing.JButton();
+        traCuuButton227 = new javax.swing.JButton();
+        quayLaiButton227 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         traCuuTable227 = new javax.swing.JTable();
 
@@ -56,9 +56,9 @@ public class ViewFrame_NhanVien extends javax.swing.JFrame {
 
         jLabel13.setText("Số lượng tồn kho");
 
-        jTextField10.addActionListener(new java.awt.event.ActionListener() {
+        sl227.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField10ActionPerformed(evt);
+                sl227ActionPerformed(evt);
             }
         });
 
@@ -69,19 +69,20 @@ public class ViewFrame_NhanVien extends javax.swing.JFrame {
         jPanel4.setForeground(new java.awt.Color(240, 240, 240));
         jPanel4.setToolTipText("");
 
-        traCuuButton228.setBackground(new java.awt.Color(0, 153, 153));
-        traCuuButton228.setText("Tra Cứu");
-        traCuuButton228.addActionListener(new java.awt.event.ActionListener() {
+        traCuuButton227.setBackground(new java.awt.Color(0, 153, 153));
+        traCuuButton227.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/icons8_workspace_20px.png"))); // NOI18N
+        traCuuButton227.setText("Tra Cứu");
+        traCuuButton227.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                traCuuButton228ActionPerformed(evt);
+                traCuuButton227ActionPerformed(evt);
             }
         });
 
-        quayLaiButton228.setBackground(new java.awt.Color(0, 153, 153));
-        quayLaiButton228.setText("Quay Lại");
-        quayLaiButton228.addActionListener(new java.awt.event.ActionListener() {
+        quayLaiButton227.setBackground(new java.awt.Color(0, 153, 153));
+        quayLaiButton227.setText("Quay Lại");
+        quayLaiButton227.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                quayLaiButton228ActionPerformed(evt);
+                quayLaiButton227ActionPerformed(evt);
             }
         });
 
@@ -92,16 +93,16 @@ public class ViewFrame_NhanVien extends javax.swing.JFrame {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap(35, Short.MAX_VALUE)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(quayLaiButton228, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(traCuuButton228, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(quayLaiButton227, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(traCuuButton227, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGap(24, 24, 24)
-                .addComponent(traCuuButton228)
+                .addComponent(traCuuButton227)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
-                .addComponent(quayLaiButton228)
+                .addComponent(quayLaiButton227)
                 .addGap(65, 65, 65))
         );
 
@@ -151,11 +152,11 @@ public class ViewFrame_NhanVien extends javax.swing.JFrame {
                                     .addComponent(jLabel13))
                                 .addGap(33, 33, 33)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jTextField6, javax.swing.GroupLayout.DEFAULT_SIZE, 485, Short.MAX_VALUE)
-                                    .addComponent(jTextField7)
-                                    .addComponent(jTextField8)
-                                    .addComponent(jTextField9)
-                                    .addComponent(jTextField10))))
+                                    .addComponent(maLinhKien227, javax.swing.GroupLayout.DEFAULT_SIZE, 485, Short.MAX_VALUE)
+                                    .addComponent(tenLinhKien)
+                                    .addComponent(loaiLinhKien227)
+                                    .addComponent(gia227)
+                                    .addComponent(sl227))))
                         .addGap(36, 36, 36)
                         .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(63, Short.MAX_VALUE))
@@ -176,17 +177,17 @@ public class ViewFrame_NhanVien extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel10))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(maLinhKien227, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(tenLinhKien, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(loaiLinhKien227, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(gia227, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel13)
-                    .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(sl227, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 131, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -200,17 +201,18 @@ public class ViewFrame_NhanVien extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField10ActionPerformed
+    private void sl227ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sl227ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField10ActionPerformed
+    }//GEN-LAST:event_sl227ActionPerformed
 
-    private void traCuuButton228ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_traCuuButton228ActionPerformed
+    private void traCuuButton227ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_traCuuButton227ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_traCuuButton228ActionPerformed
+    }//GEN-LAST:event_traCuuButton227ActionPerformed
 
-    private void quayLaiButton228ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quayLaiButton228ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_quayLaiButton228ActionPerformed
+    private void quayLaiButton227ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quayLaiButton227ActionPerformed
+        Trangchuchinhnhanvien.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_quayLaiButton227ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -248,6 +250,7 @@ public class ViewFrame_NhanVien extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField gia227;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -256,13 +259,12 @@ public class ViewFrame_NhanVien extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTextField10;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
-    private javax.swing.JTextField jTextField9;
-    private javax.swing.JButton quayLaiButton228;
-    private javax.swing.JButton traCuuButton228;
+    private javax.swing.JTextField loaiLinhKien227;
+    private javax.swing.JTextField maLinhKien227;
+    private javax.swing.JButton quayLaiButton227;
+    private javax.swing.JTextField sl227;
+    private javax.swing.JTextField tenLinhKien;
+    private javax.swing.JButton traCuuButton227;
     private javax.swing.JTable traCuuTable227;
     // End of variables declaration//GEN-END:variables
 }
