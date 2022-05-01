@@ -3,29 +3,59 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package baithinhomv5_qllinhkien;
-//import User.Linhkien;
+import User.Linhkien;
+import User.Linhkien;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
-//import User.Action;
+import User.Action;
+import User.Next1;
 import java.text.DecimalFormat;
+import javax.management.modelmbean.ModelMBean;
 /**
  *
  * @author ADMIN
  */
 public class IDT extends javax.swing.JFrame {
-
+    Next1 next;
+    DefaultTableModel tbmModel;
+    Linhkien linhkien;
+    
     /**
      * Creates new form IDT
      */
-    //private List<Linhkien> Linhkiens;
-    //private DefaultTableModel tbModel;
     public IDT() {
         initComponents();
-        this.setLocationRelativeTo(null);
-        //tbModel= (DefaultTableModel) jTable1.getModel();
-        //showTable();
+        next = new Next1();
+        linhkien = new Linhkien();
+        tbmModel= new DefaultTableModel(){
+            @Override
+                public boolean isCellEditable(int row,int column){
+                    return false;
+                }
+        };
+        jTable245.setModel(tbmModel);
+        tbmModel.addColumn("Malk");
+        tbmModel.addColumn("TenLK");
+        tbmModel.addColumn("LoaiLK");
+        tbmModel.addColumn("SLG");
+        tbmModel.addColumn("NNH");
+        tbmModel.addColumn("MaSX");
+        
+        
+        
+        
+        
+        
+        
+        setTableData(next.getalllinhkiens());
     }
-
+    private void setTableData(List<Linhkien> linhkiens){
+        for(Linhkien linhkien: linhkiens){
+            tbmModel.addRow(new Object[]{linhkien.getMaLK(), linhkien.getTenLK(),linhkien.getLoaiLK(),linhkien.getSLG(),linhkien.getNNH(),linhkien.getMaSX()});
+        }
+     
+    
+        }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -235,4 +265,6 @@ public class IDT extends javax.swing.JFrame {
         }
         JlabelTong245.setText("Tổng doanh thu :"+ x.format(Tong)+" "+"VND");
     }
+
+    
 }
