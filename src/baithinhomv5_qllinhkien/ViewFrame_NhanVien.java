@@ -39,10 +39,17 @@ public class ViewFrame_NhanVien extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(255, 102, 51));
 
-        jLabel11.setText("Nhập thông tin cần tra cứu ở đây");
+        jTextField6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jTextField6.setForeground(new java.awt.Color(255, 102, 102));
+
+        jLabel11.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(255, 102, 102));
+        jLabel11.setText("Thông tin");
 
         jLabel14.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(255, 102, 102));
         jLabel14.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel14.setText("TRA CỨU LINH KIỆN ĐIỆN TỬ - NHÂN VIÊN");
 
@@ -50,6 +57,8 @@ public class ViewFrame_NhanVien extends javax.swing.JFrame {
         jPanel4.setToolTipText("");
 
         traCuuButton228.setBackground(new java.awt.Color(0, 153, 153));
+        traCuuButton228.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        traCuuButton228.setForeground(new java.awt.Color(255, 102, 102));
         traCuuButton228.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/search_icon.png"))); // NOI18N
         traCuuButton228.setText("Tra Cứu");
         traCuuButton228.addActionListener(new java.awt.event.ActionListener() {
@@ -59,6 +68,8 @@ public class ViewFrame_NhanVien extends javax.swing.JFrame {
         });
 
         quayLaiButton228.setBackground(new java.awt.Color(0, 153, 153));
+        quayLaiButton228.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        quayLaiButton228.setForeground(new java.awt.Color(255, 102, 102));
         quayLaiButton228.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/back.png"))); // NOI18N
         quayLaiButton228.setText("Quay Lại");
         quayLaiButton228.addActionListener(new java.awt.event.ActionListener() {
@@ -74,8 +85,9 @@ public class ViewFrame_NhanVien extends javax.swing.JFrame {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap(35, Short.MAX_VALUE)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(quayLaiButton228, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(traCuuButton228, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(traCuuButton228, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(quayLaiButton228, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addContainerGap())
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -107,30 +119,34 @@ public class ViewFrame_NhanVien extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(traCuuTable227);
 
+        jComboBox1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jComboBox1.setForeground(new java.awt.Color(255, 102, 102));
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Mã linh kiện", "Tên linh kiện", "Số lượng tồn kho", "Loại linh kiện", "Giá", " ", " " }));
 
-        jLabel5.setText("Mời chọn loại yếu tố cần tra cứu");
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 102, 102));
+        jLabel5.setText("Lọc theo ");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(120, Short.MAX_VALUE)
+                .addContainerGap(74, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 621, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(41, 41, 41))
+                .addGap(30, 30, 30))
             .addComponent(jLabel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addGap(120, 120, 120)
+                .addGap(196, 196, 196)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel11)
                     .addComponent(jLabel5))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jTextField6)
-                    .addComponent(jComboBox1, 0, 420, Short.MAX_VALUE))
+                    .addComponent(jComboBox1, 0, 398, Short.MAX_VALUE)
+                    .addComponent(jTextField6))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -138,22 +154,22 @@ public class ViewFrame_NhanVien extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(36, 36, 36)
                 .addComponent(jLabel14)
-                .addGap(51, 51, 51)
+                .addGap(57, 57, 57)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5))
-                .addGap(44, 44, 44)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel11))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 123, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 97, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(75, 75, 75))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(104, 104, 104))))
+                        .addGap(104, 104, 104))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(93, 93, 93))))
         );
 
         pack();
