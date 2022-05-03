@@ -254,6 +254,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="&#x110;&#x103;ng Nh&#x1ead;p"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btndangnhap_243ActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btnclear_243">
           <Properties>

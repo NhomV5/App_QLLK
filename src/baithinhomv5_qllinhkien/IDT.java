@@ -4,6 +4,8 @@
  */
 package baithinhomv5_qllinhkien;
 //import User.Linhkien;
+import User.Linhkien;
+import User.Next1;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
 //import User.Action;
@@ -13,18 +15,46 @@ import java.text.DecimalFormat;
  * @author ADMIN
  */
 public class IDT extends javax.swing.JFrame {
-
+Next1 next;
+    DefaultTableModel tbmModel;
+    Linhkien linhkien;
+    
     /**
      * Creates new form IDT
      */
-    //private List<Linhkien> Linhkiens;
-    //private DefaultTableModel tbModel;
     public IDT() {
         initComponents();
-        this.setLocationRelativeTo(null);
-        //tbModel= (DefaultTableModel) jTable1.getModel();
-        //showTable();
+        next = new Next1();
+        linhkien = new Linhkien();
+        tbmModel= new DefaultTableModel(){
+            @Override
+                public boolean isCellEditable(int row,int column){
+                    return false;
+                }
+        };
+        jTable245.setModel(tbmModel);
+        tbmModel.addColumn("Malk");
+        tbmModel.addColumn("TenLK");
+        tbmModel.addColumn("LoaiLK");
+        tbmModel.addColumn("SLG");
+        tbmModel.addColumn("NNH");
+        tbmModel.addColumn("MaSX");
+        
+        
+        
+        
+        
+        
+        
+        setTableData(next.getalllinhkiens());
     }
+    private void setTableData(List<Linhkien> linhkiens){
+        for(Linhkien linhkien: linhkiens){
+            tbmModel.addRow(new Object[]{linhkien.getMaLK(), linhkien.getTenLK(),linhkien.getLoaiLK(),linhkien.getSLG(),linhkien.getNNH(),linhkien.getMaSX()});
+        }
+     
+    
+        }
 
     /**
      * This method is called from within the constructor to initialize the form.

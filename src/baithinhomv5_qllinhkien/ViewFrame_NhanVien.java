@@ -59,7 +59,7 @@ public class ViewFrame_NhanVien extends javax.swing.JFrame {
         traCuuButton228.setBackground(new java.awt.Color(0, 153, 153));
         traCuuButton228.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         traCuuButton228.setForeground(new java.awt.Color(255, 102, 102));
-        traCuuButton228.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/search_icon.png"))); // NOI18N
+        traCuuButton228.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/icons8_search_50px.png"))); // NOI18N
         traCuuButton228.setText("Tra Cứu");
         traCuuButton228.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -70,7 +70,7 @@ public class ViewFrame_NhanVien extends javax.swing.JFrame {
         quayLaiButton228.setBackground(new java.awt.Color(0, 153, 153));
         quayLaiButton228.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         quayLaiButton228.setForeground(new java.awt.Color(255, 102, 102));
-        quayLaiButton228.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/back.png"))); // NOI18N
+        quayLaiButton228.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/icons8_back_to_20px.png"))); // NOI18N
         quayLaiButton228.setText("Quay Lại");
         quayLaiButton228.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -83,10 +83,12 @@ public class ViewFrame_NhanVien extends javax.swing.JFrame {
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap(35, Short.MAX_VALUE)
+                .addContainerGap()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(traCuuButton228, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(quayLaiButton228, javax.swing.GroupLayout.Alignment.TRAILING))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(traCuuButton228))
+                    .addComponent(quayLaiButton228, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel4Layout.setVerticalGroup(
@@ -94,9 +96,9 @@ public class ViewFrame_NhanVien extends javax.swing.JFrame {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGap(24, 24, 24)
                 .addComponent(traCuuButton228)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
-                .addComponent(quayLaiButton228)
-                .addGap(65, 65, 65))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(quayLaiButton228, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(43, Short.MAX_VALUE))
         );
 
         traCuuTable227.setBackground(new java.awt.Color(204, 255, 204));

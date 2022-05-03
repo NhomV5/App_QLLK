@@ -18,7 +18,7 @@ public class ConnectionJDBC {
         Connection con = null;
         try {
             Class.forName("net.sourceforge.jtds.jdbc.Driver");
-            String dbUrl = "jdbc:jtds:sqlserver://NhomV5:1433/QUANLYDT;instance=SQLEXPRESS;";
+            String dbUrl = "jdbc:jtds:sqlserver://DESKTOP-14N8JCK:1433/QUANLYDT;instance=SQLEXPRESS;";
             String user="sa";
             String password="123";
             con = DriverManager.getConnection(dbUrl,user,password);

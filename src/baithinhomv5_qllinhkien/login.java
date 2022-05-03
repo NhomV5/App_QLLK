@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package nhomv5;
+package baithinhomv5_qllinhkien;
 
 /**
  *
@@ -112,6 +112,11 @@ public class login extends javax.swing.JFrame {
         btndangnhap_243.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         btndangnhap_243.setForeground(new java.awt.Color(255, 255, 255));
         btndangnhap_243.setText("Đăng Nhập");
+        btndangnhap_243.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btndangnhap_243ActionPerformed(evt);
+            }
+        });
 
         btnclear_243.setBackground(new java.awt.Color(255, 102, 51));
         btnclear_243.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -200,6 +205,18 @@ public class login extends javax.swing.JFrame {
     private void cbbchucvu_243ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbbchucvu_243ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cbbchucvu_243ActionPerformed
+
+    private void btndangnhap_243ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btndangnhap_243ActionPerformed
+        // TODO add your handling code here:
+        if(cbbchucvu_243.getSelectedItem().toString().equals("Chủ")){
+            new trangchuchinhquanly().setVisible(true);
+            this.dispose();
+        }
+        if(cbbchucvu_243.getSelectedItem().toString().equals("Nhân Viên")){
+            new trangchuchinhnhanvien().setVisible(true);
+            this.dispose();
+        }
+    }//GEN-LAST:event_btndangnhap_243ActionPerformed
 
     /**
      * @param args the command line arguments

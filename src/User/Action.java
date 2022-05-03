@@ -4,6 +4,7 @@
  */
 package User;
 
+
 import Connection.ConnectionJDBC;
 import java.util.ArrayList;
 import java.util.List;
@@ -14,7 +15,7 @@ import java.sql.*;
  * @author ADMIN
  */
 public class Action {
-    public List<Linhkien> getalllinhkiens(){
+    public List<Linhkien> getalllLinhkienss(){
         List<Linhkien> linhkiens= new ArrayList<Linhkien>();
         Connection connection=ConnectionJDBC.getJDBCConnection();
         String sql="SELECT * FROM LinhKien";
@@ -26,9 +27,11 @@ public class Action {
                 Linhkien linhkien=new Linhkien();
                 linhkien.setMaLK(rs.getString("MaLK"));
                 linhkien.setTenLK(rs.getString("TenLK"));
-                linhkien.setLoaiLK(rs.getString("LoaiLK"));
+                linhkien.setLoaiLK(rs.getString("LLK"));
+                linhkien.setSLG(rs.getInt("SLG"));
                 linhkien.setNNH(rs.getDate("NNH"));
                 linhkien.setMaSX(rs.getString("MaSX"));
+                
                 
                 linhkiens.add(linhkien);
             }
