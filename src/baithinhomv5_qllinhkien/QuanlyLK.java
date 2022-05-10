@@ -9,8 +9,8 @@ package baithinhomv5_qllinhkien;
  * @author ADMIN
  */
 public class QuanlyLK extends javax.swing.JFrame {
-    private SuaPanel mSua;
-    private ThemPanel mThem;
+    private SuaLKPanel mSua;
+    private ThemLKPanel mThem;
     private DanhsachLKPanel mXoa;
     /**
      * Creates new form Quanlynv
@@ -126,7 +126,7 @@ public class QuanlyLK extends javax.swing.JFrame {
     private void btnThem_237ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThem_237ActionPerformed
         // TODO add your handling code here:
         if(mThem == null){
-            mThem =new ThemPanel();
+            mThem =new ThemLKPanel();
             panelView_237.addTab("Thêm Nhân Viên", mThem);
         }
         panelView_237.setSelectedComponent(mThem);
@@ -135,7 +135,7 @@ public class QuanlyLK extends javax.swing.JFrame {
     private void btnSua_237ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSua_237ActionPerformed
         // TODO add your handling code here:
         if(mSua == null){
-            mSua =new SuaPanel();
+            mSua =new SuaLKPanel();
             panelView_237.addTab("Sửa Nhân Viên", mSua);
         }
         panelView_237.setSelectedComponent(mSua);
