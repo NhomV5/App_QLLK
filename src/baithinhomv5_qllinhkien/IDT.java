@@ -36,6 +36,7 @@ Next1 next;
         tbmModel.addColumn("Malk");
         tbmModel.addColumn("TenLK");
         tbmModel.addColumn("LoaiLK");
+        tbmModel.addColumn("Gia");
         tbmModel.addColumn("SLG");
         tbmModel.addColumn("NNH");
         tbmModel.addColumn("MaSX");
@@ -47,10 +48,11 @@ Next1 next;
         
         
         setTableData(next.getalllinhkiens());
+        Tong();
     }
     private void setTableData(List<Linhkien> linhkiens){
         for(Linhkien linhkien: linhkiens){
-            tbmModel.addRow(new Object[]{linhkien.getMaLK(), linhkien.getTenLK(),linhkien.getLoaiLK(),linhkien.getSLG(),linhkien.getNNH(),linhkien.getMaSX()});
+            tbmModel.addRow(new Object[]{linhkien.getMaLK(), linhkien.getTenLK(),linhkien.getLoaiLK(),linhkien.getGia(),linhkien.getSLG(),linhkien.getNNH(),linhkien.getMaSX()});
         }
      
     
@@ -75,7 +77,6 @@ Next1 next;
         Endlabel245 = new javax.swing.JLabel();
         jLabelstart245 = new javax.swing.JLabel();
         End245 = new javax.swing.JTextField();
-        TDT245 = new javax.swing.JLabel();
         JlabelTong245 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -137,8 +138,7 @@ Next1 next;
                 .addGap(62, 62, 62))
         );
 
-        TDT245.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        TDT245.setText("Tổng doanh thu :");
+        JlabelTong245.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -157,12 +157,11 @@ Next1 next;
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(Back245, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 741, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(TDT245, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(JlabelTong245, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 741, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(JlabelTong245, javax.swing.GroupLayout.PREFERRED_SIZE, 499, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -178,14 +177,9 @@ Next1 next;
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(41, 41, 41)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(TDT245, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(42, 42, 42))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(JlabelTong245, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addContainerGap())))
+                .addGap(33, 33, 33)
+                .addComponent(JlabelTong245, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
+                .addGap(21, 21, 21))
         );
 
         pack();
@@ -240,7 +234,6 @@ Next1 next;
     private javax.swing.JLabel JlabelTong245;
     private javax.swing.JButton Show245;
     private javax.swing.JTextField Start245;
-    private javax.swing.JLabel TDT245;
     private javax.swing.JLabel jLabelstart245;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
@@ -261,8 +254,9 @@ Next1 next;
         DecimalFormat x= new DecimalFormat("###,###,###");
         int Tong=0;
         for(int i=0;i<jTable245.getRowCount();i++){
-            Tong=Integer.parseInt(jTable245.getValueAt(i, 2).toString());
+            Tong+=Integer.parseInt(jTable245.getValueAt(i, 3).toString());
         }
         JlabelTong245.setText("Tổng doanh thu :"+ x.format(Tong)+" "+"VND");
     }
+
 }

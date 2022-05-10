@@ -14,10 +14,20 @@ public class Linhkien {
     private String MaLK,TenLK,LoaiLK,MaSX;
     private Number SLG;
     private Date NNH;
-
+    private String Gia;
     public String getMaLK() {
         return MaLK;
     }
+
+    public String getGia() {
+        return Gia;
+    }
+
+    public void setGia(String Gia) {
+        this.Gia = Gia;
+    }
+
+    
 
     public void setMaLK(String MaLK) {
         this.MaLK = MaLK;
@@ -62,5 +72,6 @@ public class Linhkien {
     public void setNNH(Date NNH) {
         this.NNH = NNH;
     }
+    
     
 }
