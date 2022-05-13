@@ -11,7 +11,7 @@ package baithinhomv5_qllinhkien;
 public class QuanlyLK extends javax.swing.JFrame {
     private SuaLKPanel mSua;
     private ThemLKPanel mThem;
-    private DanhsachLKPanel mXoa;
+    private XoaLKPanel mXoa;
     /**
      * Creates new form Quanlynv
      */
@@ -31,9 +31,10 @@ public class QuanlyLK extends javax.swing.JFrame {
         lbQuanliLK_237 = new javax.swing.JLabel();
         btnThem_237 = new javax.swing.JButton();
         btnSua_237 = new javax.swing.JButton();
-        btndslk_237 = new javax.swing.JButton();
+        btnxoa_237 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         panelView_237 = new javax.swing.JTabbedPane();
+        btnlammoi237 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -64,13 +65,13 @@ public class QuanlyLK extends javax.swing.JFrame {
             }
         });
 
-        btndslk_237.setBackground(new java.awt.Color(102, 255, 255));
-        btndslk_237.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        btndslk_237.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/icons8_workspace_20px.png"))); // NOI18N
-        btndslk_237.setText("Danh sách linh kiện");
-        btndslk_237.addActionListener(new java.awt.event.ActionListener() {
+        btnxoa_237.setBackground(new java.awt.Color(102, 255, 255));
+        btnxoa_237.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnxoa_237.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/icons8_workspace_20px.png"))); // NOI18N
+        btnxoa_237.setText("Xóa Linh Kiện");
+        btnxoa_237.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btndslk_237ActionPerformed(evt);
+                btnxoa_237ActionPerformed(evt);
             }
         });
 
@@ -84,40 +85,52 @@ public class QuanlyLK extends javax.swing.JFrame {
             }
         });
 
+        btnlammoi237.setBackground(new java.awt.Color(102, 255, 255));
+        btnlammoi237.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnlammoi237.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/icons8_refresh_20px.png"))); // NOI18N
+        btnlammoi237.setText("LÀM MỚI");
+        btnlammoi237.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnlammoi237ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lbQuanliLK_237, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btndslk_237, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnSua_237, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnThem_237, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(lbQuanliLK_237, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE)
+                    .addComponent(btnxoa_237, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE)
+                    .addComponent(btnSua_237, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE)
+                    .addComponent(btnThem_237, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE)
+                    .addComponent(btnlammoi237, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(panelView_237, javax.swing.GroupLayout.PREFERRED_SIZE, 680, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addContainerGap(18, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(panelView_237)
-                        .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(panelView_237)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(lbQuanliLK_237, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btndslk_237, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnxoa_237, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnSua_237, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnThem_237, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(23, 23, 23))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnlammoi237, javax.swing.GroupLayout.DEFAULT_SIZE, 94, Short.MAX_VALUE)
+                        .addGap(33, 33, 33)))
+                .addContainerGap())
         );
 
         pack();
@@ -142,19 +155,25 @@ public class QuanlyLK extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btnSua_237ActionPerformed
 
-    private void btndslk_237ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btndslk_237ActionPerformed
+    private void btnxoa_237ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnxoa_237ActionPerformed
         // TODO add your handling code here:
         if(mXoa == null){
-            mXoa =new DanhsachLKPanel();
+            mXoa =new XoaLKPanel();
             panelView_237.addTab("Xóa Nhân Viên", mXoa);
         }
         panelView_237.setSelectedComponent(mXoa);
-    }//GEN-LAST:event_btndslk_237ActionPerformed
+    }//GEN-LAST:event_btnxoa_237ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void btnlammoi237ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnlammoi237ActionPerformed
+        // TODO add your handling code here:
+        new QuanlyLK().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnlammoi237ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -195,7 +214,8 @@ public class QuanlyLK extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnSua_237;
     private javax.swing.JButton btnThem_237;
-    private javax.swing.JButton btndslk_237;
+    private javax.swing.JButton btnlammoi237;
+    private javax.swing.JButton btnxoa_237;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel lbQuanliLK_237;
     private javax.swing.JTabbedPane panelView_237;
