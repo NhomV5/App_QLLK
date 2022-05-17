@@ -5,6 +5,13 @@
  */
 package nhomv5;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author kvan2
@@ -16,8 +23,11 @@ public class login extends javax.swing.JFrame {
      */
     public login() {
         initComponents();
+         setLocationRelativeTo(null);
     }
-
+    String URL="jdbc:jtds:sqlserver://DESKTOP-A3QJQ78:1433/DangNhap;instance=SQLEXPRESS";
+    String USERNAME = "sa";
+    String PASSWORD = "123456";
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -112,11 +122,26 @@ public class login extends javax.swing.JFrame {
         btndangnhap_243.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         btndangnhap_243.setForeground(new java.awt.Color(255, 255, 255));
         btndangnhap_243.setText("Đăng Nhập");
+        btndangnhap_243.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btndangnhap_243MouseClicked(evt);
+            }
+        });
+        btndangnhap_243.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btndangnhap_243ActionPerformed(evt);
+            }
+        });
 
         btnclear_243.setBackground(new java.awt.Color(255, 102, 51));
         btnclear_243.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         btnclear_243.setForeground(new java.awt.Color(255, 255, 255));
         btnclear_243.setText("Clear");
+        btnclear_243.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnclear_243ActionPerformed(evt);
+            }
+        });
 
         jLabel7_243.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel7_243.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/icons8_workspace_50px.png"))); // NOI18N
@@ -200,6 +225,66 @@ public class login extends javax.swing.JFrame {
     private void cbbchucvu_243ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbbchucvu_243ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cbbchucvu_243ActionPerformed
+
+    private void btndangnhap_243ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btndangnhap_243ActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_btndangnhap_243ActionPerformed
+
+    private void btndangnhap_243MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btndangnhap_243MouseClicked
+        // TODO add your handling code here:
+        if(cbbchucvu_243.getSelectedItem().toString().equals("Chủ")){
+             PreparedStatement statement = null;
+                try{
+                    Connection con = DriverManager.getConnection(URL, USERNAME,PASSWORD);
+                    String username=txttaikhoan_243.getText();
+                    String password=txtmatkhau_243.getText();
+                    Statement stm=con.createStatement();
+                    String sql="select * from Chu where USERNAME='"+username+"' and PASS='"+password+"'";
+                    ResultSet rs=stm.executeQuery(sql);
+                    if(txttaikhoan_243.getText().equals("")|txtmatkhau_243.getText().equals("")){
+                        JOptionPane.showMessageDialog(this,"Chưa nhập user và password");
+                    }
+                    else if(rs.next()){
+                        new TrangChinhNhanVien().setVisible(true);
+                        this.dispose();
+                        JOptionPane.showMessageDialog(this,"Đăng nhập thành công");
+                    }
+                    else{
+                        JOptionPane.showMessageDialog(this,"Đăng nhập thất bại");
+                    }
+                }catch (Exception e){
+                }
+        }else if(cbbchucvu_243.getSelectedItem().toString().equals("Nhân Viên")){
+            PreparedStatement statement = null;
+                try{
+                    Connection con = DriverManager.getConnection(URL, USERNAME,PASSWORD);
+                    String username=txttaikhoan_243.getText();
+                    String password=txtmatkhau_243.getText();
+                    Statement stm=con.createStatement();
+                    String sql="select * from NhanVien where USERNAME='"+username+"' and PASS='"+password+"'";
+                    ResultSet rs=stm.executeQuery(sql);
+                    if(txttaikhoan_243.getText().equals("")|txtmatkhau_243.getText().equals("")){
+                        JOptionPane.showMessageDialog(this,"Chưa nhập user và password");
+                    }
+                    else if(rs.next()){
+                        new TrangChuChinh().setVisible(true);
+                        this.dispose();
+                        JOptionPane.showMessageDialog(this,"Đăng nhập thành công");
+                    }
+                    else{
+                        JOptionPane.showMessageDialog(this,"Đăng nhập thất bại");
+                    }
+                }catch (Exception e){
+                }
+        }
+    }//GEN-LAST:event_btndangnhap_243MouseClicked
+
+    private void btnclear_243ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnclear_243ActionPerformed
+        // TODO add your handling code here:
+        txttaikhoan_243.setText("");
+        txtmatkhau_243.setText("");
+    }//GEN-LAST:event_btnclear_243ActionPerformed
 
     /**
      * @param args the command line arguments
