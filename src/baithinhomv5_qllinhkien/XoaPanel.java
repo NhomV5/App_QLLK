@@ -5,19 +5,42 @@
  */
 package JAVA_CuoiKi;
 
+import java.util.List;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author ADMIN
  */
 public class XoaPanel extends javax.swing.JPanel {
 
+  DefaultTableModel tableModel;
+    List<NhanVien> dataList;
+    int currentPos = -1;
     /**
-     * Creates new form XoaPanel
+     * Creates new form PanelXoaLinhKien
      */
     public XoaPanel() {
         initComponents();
+        tableModel = (DefaultTableModel) tableNV_28.getModel();
+        dataList = NhanVienModify.getNhanVienList(null);
+        showData();
     }
-
+     private void showData() {
+        tableModel.setRowCount(0);
+        for (NhanVien nhanvien : dataList) {
+            tableModel.addRow(new Object[]{
+                tableModel.getRowCount() + 1,
+                nhanvien.getMaNV(),
+                nhanvien.getTenNV(),
+                nhanvien.getSDT(),
+                nhanvien.getEmail(),
+                nhanvien.getGioiTinh(),
+                nhanvien.getSaLaRy()
+            });
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -29,7 +52,7 @@ public class XoaPanel extends javax.swing.JPanel {
 
         lbXoa_28 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        txtMaLK = new javax.swing.JTextField();
+        txtMaNV = new javax.swing.JTextField();
         btnXoa_28 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tableNV_28 = new javax.swing.JTable();
@@ -69,7 +92,7 @@ public class XoaPanel extends javax.swing.JPanel {
                         .addGap(31, 31, 31)
                         .addComponent(jLabel3)
                         .addGap(31, 31, 31)
-                        .addComponent(txtMaLK, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtMaNV, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(30, 30, 30)
                         .addComponent(btnXoa_28, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 623, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -87,7 +110,7 @@ public class XoaPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnXoa_28, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(txtMaLK, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtMaNV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel3)))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -97,7 +120,17 @@ public class XoaPanel extends javax.swing.JPanel {
 
     private void btnXoa_28ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXoa_28ActionPerformed
         // TODO add your handling code here:
-       
+        if(txtMaNV.getText().equals("")) {
+            JOptionPane.showMessageDialog(this, "Bạn Chưa Nhập Mã Nhân Viên");
+            return;
+        }
+        int ret = JOptionPane.showConfirmDialog(this, "Bạn có chắc chắn muốn xóa?", "Confirm", JOptionPane.YES_NO_OPTION);
+        if(ret != -1) {
+            NhanVienModify.delete(txtMaNV.getText());
+            JOptionPane.showMessageDialog(this, "Xóa nhân viên thành công");
+        }
+        showData();
+        txtMaNV.setText("");
     }//GEN-LAST:event_btnXoa_28ActionPerformed
 
 
@@ -107,6 +140,6 @@ public class XoaPanel extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lbXoa_28;
     private javax.swing.JTable tableNV_28;
-    private javax.swing.JTextField txtMaLK;
+    private javax.swing.JTextField txtMaNV;
     // End of variables declaration//GEN-END:variables
 }
