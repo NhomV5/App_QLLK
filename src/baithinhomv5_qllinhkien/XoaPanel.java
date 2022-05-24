@@ -36,7 +36,6 @@ public class XoaPanel extends javax.swing.JPanel {
                 nhanvien.getTenNV(),
                 nhanvien.getSDT(),
                 nhanvien.getEmail(),
-                nhanvien.getGioiTinh(),
                 nhanvien.getSaLaRy()
             });
         }
@@ -77,7 +76,7 @@ public class XoaPanel extends javax.swing.JPanel {
 
             },
             new String [] {
-                "Mã Nhân Viên", "Tên Nhân Viên", "Lương", "Giới Tính", "Email", "SĐT"
+                "STT", "Mã Nhân Viên", "Tên Nhân Viên", "SĐT", "Email", "Lương"
             }
         ));
         jScrollPane1.setViewportView(tableNV_28);
@@ -113,8 +112,8 @@ public class XoaPanel extends javax.swing.JPanel {
                         .addComponent(txtMaNV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel3)))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(77, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 149, Short.MAX_VALUE)
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
