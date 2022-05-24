@@ -34,4 +34,7 @@ public class Next1 {
     public List<Nhanvien> getallNhanvien(){
         return action.getallNhanvien();
     }
+    public List<Linhkien> getProductByNNH(String Date1,String Date2){
+        return action.getProductByNNH(Date1,Date2);
+    }
 }

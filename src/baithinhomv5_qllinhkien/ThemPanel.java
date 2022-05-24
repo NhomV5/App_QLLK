@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package JAVA_CuoiKi;
+package baithinhomv5_qllinhkien;
 
+import User.Nhanvien;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -15,7 +16,7 @@ import javax.swing.table.DefaultTableModel;
  */
 public class ThemPanel extends javax.swing.JPanel {
 DefaultTableModel tableModel;
-    List<NhanVien> dataList;
+    List<Nhanvien> dataList;
     int currentPos = -1;
     /**
      * Creates new form PanelThemLinhKien

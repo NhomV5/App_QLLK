@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package JAVA_CuoiKi;
+package baithinhomv5_qllinhkien;
 
+import User.Nhanvien;
 import java.awt.Color;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -19,7 +20,7 @@ import javax.swing.table.DefaultTableModel;
 public class SuaPanel extends javax.swing.JPanel {
 
   DefaultTableModel tableModel;
-    List<NhanVien> dataList;
+    List<Nhanvien> dataList;
     int currentPos = -1;
     /**
      * Creates new form PanelSua
@@ -59,13 +60,13 @@ public class SuaPanel extends javax.swing.JPanel {
     }
      private void showData() {
         tableModel.setRowCount(0);
-        for (NhanVien nhanvien : dataList) {
+        for (Nhanvien nhanvien : dataList) {
             tableModel.addRow(new Object[]{
                 tableModel.getRowCount() + 1,
                 nhanvien.getMaNV(),
                 nhanvien.getTenNV(),
                 nhanvien.getSDT(),
-                    nhanvien.getEmail(),
+                nhanvien.getEmail(),
                 nhanvien.getSaLaRy()
             });
         }
