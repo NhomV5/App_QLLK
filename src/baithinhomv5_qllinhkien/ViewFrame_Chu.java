@@ -19,13 +19,13 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author NGUYEN HAI LUAN
  */
-public class ViewFrame_QuanTriVien extends javax.swing.JFrame {
+public class ViewFrame_Chu extends javax.swing.JFrame {
 
     private trangchuchinhquanly Trangchuchinhquanly;
     DefaultTableModel defaultTableModel;
     Linhkien lk;
 
-    public ViewFrame_QuanTriVien() {
+    public ViewFrame_Chu() {
         initComponents();
         defaultTableModel = new DefaultTableModel() {
             @Override
@@ -96,7 +96,6 @@ public class ViewFrame_QuanTriVien extends javax.swing.JFrame {
         traCuuButton227.setBackground(new java.awt.Color(0, 153, 153));
         traCuuButton227.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         traCuuButton227.setForeground(new java.awt.Color(255, 102, 51));
-        traCuuButton227.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/search_icon.png"))); // NOI18N
         traCuuButton227.setText("Tra Cứu");
         traCuuButton227.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -107,13 +106,11 @@ public class ViewFrame_QuanTriVien extends javax.swing.JFrame {
         inDTButton227.setBackground(new java.awt.Color(0, 153, 153));
         inDTButton227.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         inDTButton227.setForeground(new java.awt.Color(255, 102, 51));
-        inDTButton227.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/icons8_workspace_20px.png"))); // NOI18N
         inDTButton227.setText("Cập Nhật");
 
         quayLaiButton227.setBackground(new java.awt.Color(0, 153, 153));
         quayLaiButton227.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         quayLaiButton227.setForeground(new java.awt.Color(255, 102, 51));
-        quayLaiButton227.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/icons8_back_to_20px.png"))); // NOI18N
         quayLaiButton227.setText("Quay Lại");
         quayLaiButton227.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -163,15 +160,15 @@ public class ViewFrame_QuanTriVien extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 808, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(62, 62, 62))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(traCuuButton227)
                         .addGap(18, 18, 18)
                         .addComponent(inDTButton227)
                         .addGap(18, 18, 18)
-                        .addComponent(quayLaiButton227, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(178, 178, 178))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 808, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(62, 62, 62))))
+                        .addComponent(quayLaiButton227, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(102, 102, 102))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -188,12 +185,12 @@ public class ViewFrame_QuanTriVien extends javax.swing.JFrame {
                     .addComponent(thongTin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(53, 53, 53)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(43, 43, 43)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(quayLaiButton227, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(quayLaiButton227, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(inDTButton227, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(traCuuButton227))
-                .addContainerGap(37, Short.MAX_VALUE))
+                .addGap(35, 35, 35))
         );
 
         pack();
@@ -210,7 +207,7 @@ public class ViewFrame_QuanTriVien extends javax.swing.JFrame {
 
             // Nếu tìm kiếm theo Mã linh kiện
             if (SearchComboBox227.getSelectedItem() == "Mã linh kiện") {
-                sql = sql + " where MaLK like '" + thongTin.getText() + "'";
+                sql = sql + " where MaLK like '%" + thongTin.getText() + "%'";
                 //Còn chỗ mô nữa còn cái ngày
             }
 
@@ -221,7 +218,7 @@ public class ViewFrame_QuanTriVien extends javax.swing.JFrame {
 
             // Nếu tìm kiếm theo Số lượng
             if (SearchComboBox227.getSelectedItem() == "Số lượng tồn kho") {
-                sql = sql + " where SLG =" + thongTin.getText();
+                sql = sql + " where SLG like '%" + thongTin.getText() + "%'";
             }
 
             // Nếu tìm kiếm theo Loại linh kiện
@@ -318,21 +315,27 @@ public class ViewFrame_QuanTriVien extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ViewFrame_QuanTriVien.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ViewFrame_Chu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ViewFrame_QuanTriVien.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ViewFrame_Chu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ViewFrame_QuanTriVien.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ViewFrame_Chu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ViewFrame_QuanTriVien.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ViewFrame_Chu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ViewFrame_QuanTriVien().setVisible(true);
+                new ViewFrame_Chu().setVisible(true);
             }
 
         });

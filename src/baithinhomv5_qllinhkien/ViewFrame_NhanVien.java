@@ -18,7 +18,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author NGUYEN HAI LUAN
  */
-public class Search_NhanVien extends javax.swing.JFrame {
+public class ViewFrame_NhanVien extends javax.swing.JFrame {
 
     /**
      * Creates new form ViewFrame_NhanVien
@@ -27,7 +27,7 @@ public class Search_NhanVien extends javax.swing.JFrame {
     DefaultTableModel defaultTableModel;
     Linhkien lk;
     
-    public Search_NhanVien() {
+    public ViewFrame_NhanVien() {
         initComponents();
         defaultTableModel = new DefaultTableModel() {
             @Override
@@ -55,16 +55,15 @@ public class Search_NhanVien extends javax.swing.JFrame {
         thongTin = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
-        jPanel4 = new javax.swing.JPanel();
-        traCuuButton228 = new javax.swing.JButton();
-        quayLaiButton228 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         traCuuTable227 = new javax.swing.JTable();
         SearchComboBox227 = new javax.swing.JComboBox<>();
         jLabel5 = new javax.swing.JLabel();
+        traCuuButton228 = new javax.swing.JButton();
+        quayLaiButton228 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setBackground(new java.awt.Color(255, 102, 51));
+        setBackground(new java.awt.Color(204, 102, 255));
 
         thongTin.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         thongTin.setForeground(new java.awt.Color(255, 102, 102));
@@ -77,52 +76,6 @@ public class Search_NhanVien extends javax.swing.JFrame {
         jLabel14.setForeground(new java.awt.Color(255, 102, 102));
         jLabel14.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel14.setText("TRA CỨU LINH KIỆN ĐIỆN TỬ - NHÂN VIÊN");
-
-        jPanel4.setForeground(new java.awt.Color(240, 240, 240));
-        jPanel4.setToolTipText("");
-
-        traCuuButton228.setBackground(new java.awt.Color(0, 153, 153));
-        traCuuButton228.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        traCuuButton228.setForeground(new java.awt.Color(255, 102, 102));
-        traCuuButton228.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/search_icon.png"))); // NOI18N
-        traCuuButton228.setText("Tra Cứu");
-        traCuuButton228.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                traCuuButton228ActionPerformed(evt);
-            }
-        });
-
-        quayLaiButton228.setBackground(new java.awt.Color(0, 153, 153));
-        quayLaiButton228.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        quayLaiButton228.setForeground(new java.awt.Color(255, 102, 102));
-        quayLaiButton228.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/back.png"))); // NOI18N
-        quayLaiButton228.setText("Quay Lại");
-        quayLaiButton228.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                quayLaiButton228ActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap(35, Short.MAX_VALUE)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(traCuuButton228, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(quayLaiButton228, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addContainerGap())
-        );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addComponent(traCuuButton228)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
-                .addComponent(quayLaiButton228)
-                .addGap(65, 65, 65))
-        );
 
         traCuuTable227.setBackground(new java.awt.Color(204, 255, 204));
         traCuuTable227.setModel(new javax.swing.table.DefaultTableModel(
@@ -152,16 +105,30 @@ public class Search_NhanVien extends javax.swing.JFrame {
         jLabel5.setForeground(new java.awt.Color(255, 102, 102));
         jLabel5.setText("Lọc theo ");
 
+        traCuuButton228.setBackground(new java.awt.Color(0, 153, 153));
+        traCuuButton228.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        traCuuButton228.setForeground(new java.awt.Color(255, 102, 102));
+        traCuuButton228.setText("Tra Cứu");
+        traCuuButton228.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                traCuuButton228ActionPerformed(evt);
+            }
+        });
+
+        quayLaiButton228.setBackground(new java.awt.Color(0, 153, 153));
+        quayLaiButton228.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        quayLaiButton228.setForeground(new java.awt.Color(255, 102, 102));
+        quayLaiButton228.setText("Quay Lại");
+        quayLaiButton228.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                quayLaiButton228ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(74, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 621, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30))
             .addComponent(jLabel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addGap(196, 196, 196)
@@ -173,6 +140,17 @@ public class Search_NhanVien extends javax.swing.JFrame {
                     .addComponent(SearchComboBox227, 0, 398, Short.MAX_VALUE)
                     .addComponent(thongTin))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(102, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 621, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(186, 186, 186))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(traCuuButton228)
+                        .addGap(41, 41, 41)
+                        .addComponent(quayLaiButton228)
+                        .addGap(96, 96, 96))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -188,13 +166,12 @@ public class Search_NhanVien extends javax.swing.JFrame {
                     .addComponent(thongTin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel11))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 97, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(104, 104, 104))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(93, 93, 93))))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(43, 43, 43)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(traCuuButton228)
+                    .addComponent(quayLaiButton228))
+                .addGap(36, 36, 36))
         );
 
         pack();
@@ -210,17 +187,17 @@ public class Search_NhanVien extends javax.swing.JFrame {
 
             // Nếu tìm kiếm theo Mã linh kiện
             if (SearchComboBox227.getSelectedItem() == "Mã linh kiện") {
-                sql = sql + " where MaLK like '" + thongTin.getText() + "'";
+                sql = sql + " where MaLK like '%" + thongTin.getText() + "%'";
             }
 
             // Nếu tìm kiếm theo Tên linh kiện
             if (SearchComboBox227.getSelectedItem() == "Tên linh kiện") {
-                sql = sql + " where TenLK like '" + thongTin.getText() + "'";
+                sql = sql + " where TenLK like '%" + thongTin.getText() + "%'";
             }
 
             // Nếu tìm kiếm theo Số lượng
             if (SearchComboBox227.getSelectedItem() == "Số lượng tồn kho") {
-                sql = sql + " where SLG =" + thongTin.getText();
+                sql = sql + " where SLG like '%" + thongTin.getText() + "%'";
             }
 
             // Nếu tìm kiếm theo Loại linh kiện
@@ -305,14 +282,18 @@ public class Search_NhanVien extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Search_NhanVien.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ViewFrame_NhanVien.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Search_NhanVien.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ViewFrame_NhanVien.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Search_NhanVien.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ViewFrame_NhanVien.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Search_NhanVien.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ViewFrame_NhanVien.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -321,7 +302,7 @@ public class Search_NhanVien extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Search_NhanVien().setVisible(true);
+                new ViewFrame_NhanVien().setVisible(true);
             }
         });
     }
@@ -331,7 +312,6 @@ public class Search_NhanVien extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton quayLaiButton228;
     private javax.swing.JTextField thongTin;
