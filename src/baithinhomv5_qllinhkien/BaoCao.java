@@ -4,19 +4,74 @@
  */
 package baithinhomv5_qllinhkien;
 
+import Connection.ConnectionJDBC;
+import User.Action;
+import User.Linhkien;
+import User.Next1;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.text.DecimalFormat;
+import java.util.List;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author ADMIN
  */
 public class BaoCao extends javax.swing.JFrame {
-
+    String Data1,Data2;
+    Next1 next;
+    DefaultTableModel tbmModel;
+    Linhkien linhkien;
     /**
      * Creates new form BaoCao
      */
-    public BaoCao() {
+    public BaoCao(String Date1,String Date2) {
         initComponents();
+        this.Data1 = Date1;
+        this.Data2= Date2;
+        this.Start245.setText(Date1);
+        this.End245.setText(Date2);
+        
+        next = new Next1();
+        linhkien = new Linhkien();
+        tbmModel= new DefaultTableModel(){
+            @Override
+                public boolean isCellEditable(int row,int column){
+                    return false;
+                }
+        };
+        jTable245.setModel(tbmModel);
+        tbmModel.addColumn("Malk");
+        tbmModel.addColumn("TenLK");
+        tbmModel.addColumn("LoaiLK");
+        tbmModel.addColumn("Gia");
+        tbmModel.addColumn("SLG");
+        tbmModel.addColumn("NNH");
+        tbmModel.addColumn("MaSX");
+        
+        
+        
+        
+        
+        
+        
+        setTableData((List<Linhkien>) next.getProductByNNH(Start245.getText(), End245.getText()));
+        Tong();
     }
 
+    private BaoCao() {
+        
+    }
+    private void setTableData(List<Linhkien> linhkiens){
+        for(Linhkien linhkien: linhkiens){
+            tbmModel.addRow(new Object[]{linhkien.getMaLK(), linhkien.getTenLK(),linhkien.getLoaiLK(),linhkien.getGia(),linhkien.getSLG(),linhkien.getNNH(),linhkien.getMaSX()});
+        }
+    }
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -35,6 +90,7 @@ public class BaoCao extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable245 = new javax.swing.JTable();
         In245 = new javax.swing.JButton();
+        jLabelTong245 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -84,6 +140,13 @@ public class BaoCao extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jTable245);
 
         In245.setText("In");
+        In245.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                In245ActionPerformed(evt);
+            }
+        });
+
+        jLabelTong245.setText("jLabel1");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -92,20 +155,23 @@ public class BaoCao extends javax.swing.JFrame {
             .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jScrollPane1)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(Start245, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(End245, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(In245, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jScrollPane1)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(Start245, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(End245, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabelTong245, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(In245, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -119,14 +185,23 @@ public class BaoCao extends javax.swing.JFrame {
                     .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(End245, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 415, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 445, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(In245)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(In245)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(4, 4, 4)
+                        .addComponent(jLabelTong245, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void In245ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_In245ActionPerformed
+        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(null, "Chức năng đang bảo trì");
+    }//GEN-LAST:event_In245ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -157,8 +232,9 @@ public class BaoCao extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
-                new BaoCao().setVisible(true);
+                new BaoCao().setVisible(true);  
             }
         });
     }
@@ -170,8 +246,18 @@ public class BaoCao extends javax.swing.JFrame {
     private javax.swing.JLabel Start245;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabelTong245;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable245;
     // End of variables declaration//GEN-END:variables
+private void Tong(){
+        DecimalFormat x= new DecimalFormat("###,###,###");
+        int Tong=0;
+        for(int i=0;i<jTable245.getRowCount();i++){
+            Tong+=Integer.parseInt(jTable245.getValueAt(i, 3).toString());
+        }
+        jLabelTong245.setText("Tổng doanh thu :"+ x.format(Tong)+" "+"VND");
+    }
 }
+
