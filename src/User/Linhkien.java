@@ -11,12 +11,20 @@ import java.util.Date;
  * @author ADMIN
  */
 public class Linhkien {
-    private String MaLK,TenLK,LoaiLK,MaSX;
+    private String MaLK,TenLK,LoaiLK,MaSX,Gia;
     private Number SLG;
     private Date NNH;
 
     public String getMaLK() {
         return MaLK;
+    }
+
+    public String getGia() {
+        return Gia;
+    }
+
+    public void setGia(String Gia) {
+        this.Gia = Gia;
     }
 
     public void setMaLK(String MaLK) {

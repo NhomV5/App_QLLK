@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package nhomv5;
+package baithinhomv5_qllinhkien;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -246,7 +246,7 @@ public class login extends javax.swing.JFrame {
                         JOptionPane.showMessageDialog(this,"Chưa nhập user và password");
                     }
                     else if(rs.next()){
-                        new TrangChinhNhanVien().setVisible(true);
+                        new trangchuchinhquanly().setVisible(true);
                         this.dispose();
                         JOptionPane.showMessageDialog(this,"Đăng nhập thành công");
                     }
@@ -268,7 +268,7 @@ public class login extends javax.swing.JFrame {
                         JOptionPane.showMessageDialog(this,"Chưa nhập user và password");
                     }
                     else if(rs.next()){
-                        new TrangChuChinh().setVisible(true);
+                        new trangchuchinhnhanvien().setVisible(true);
                         this.dispose();
                         JOptionPane.showMessageDialog(this,"Đăng nhập thành công");
                     }
