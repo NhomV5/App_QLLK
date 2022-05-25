@@ -4,22 +4,19 @@
  * and open the template in the editor.
  */
 package baithinhomv5_qllinhkien;
-
-import User.Nhanvien;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-
 /**
  *
- * @author ADMIN
+ * @author kvan2
  */
-public class ThemPanel extends javax.swing.JPanel {
-DefaultTableModel tableModel;
-    List<Nhanvien> dataList;
+public class ThemPanel extends javax.swing.JFrame {
+    DefaultTableModel tableModel;
+    List<NhanVien> dataList;
     int currentPos = -1;
     /**
-     * Creates new form PanelThemLinhKien
+     * Creates new form ThemPanel
      */
     public ThemPanel() {
         initComponents();
@@ -27,7 +24,7 @@ DefaultTableModel tableModel;
         dataList = NhanVienModify.getNhanVienList(null);
         showData();
     }
-     private void showData() {
+    private void showData() {
         tableModel.setRowCount(0);
         for (NhanVien nhanvien : dataList) {
             tableModel.addRow(new Object[]{
@@ -40,6 +37,7 @@ DefaultTableModel tableModel;
             });
         }
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -49,26 +47,22 @@ DefaultTableModel tableModel;
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lbManhanvien_28 = new javax.swing.JLabel();
-        txtMaNV_28 = new javax.swing.JTextField();
-        lbTenNV_28 = new javax.swing.JLabel();
-        txtTenNV_28 = new javax.swing.JTextField();
-        txtEmail_28 = new javax.swing.JTextField();
-        lbEmail = new javax.swing.JLabel();
         lbSdt_28 = new javax.swing.JLabel();
         txtSdt_28 = new javax.swing.JTextField();
         lbLuong_28 = new javax.swing.JLabel();
         txtLuong_28 = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         tableNV_28 = new javax.swing.JTable();
+        lbManhanvien_28 = new javax.swing.JLabel();
+        txtMaNV_28 = new javax.swing.JTextField();
         btnThem_28 = new javax.swing.JButton();
+        lbTenNV_28 = new javax.swing.JLabel();
         lbThem_28 = new javax.swing.JLabel();
+        txtTenNV_28 = new javax.swing.JTextField();
+        txtEmail_28 = new javax.swing.JTextField();
+        lbEmail = new javax.swing.JLabel();
 
-        lbManhanvien_28.setText("Mã Nhân Viên:");
-
-        lbTenNV_28.setText("Tên Nhân Viên:");
-
-        lbEmail.setText("Email:");
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         lbSdt_28.setText("SĐT:");
 
@@ -84,6 +78,8 @@ DefaultTableModel tableModel;
         ));
         jScrollPane1.setViewportView(tableNV_28);
 
+        lbManhanvien_28.setText("Mã Nhân Viên:");
+
         btnThem_28.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/icons8_add_40px.png"))); // NOI18N
         btnThem_28.setText("Thêm ");
         btnThem_28.addActionListener(new java.awt.event.ActionListener() {
@@ -92,12 +88,16 @@ DefaultTableModel tableModel;
             }
         });
 
+        lbTenNV_28.setText("Tên Nhân Viên:");
+
         lbThem_28.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         lbThem_28.setForeground(new java.awt.Color(255, 51, 102));
         lbThem_28.setText("Thêm Nhân Viên Mới");
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
+        lbEmail.setText("Email:");
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
@@ -130,7 +130,7 @@ DefaultTableModel tableModel;
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(257, 257, 257)
                                         .addComponent(btnThem_28, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(0, 154, Short.MAX_VALUE))))
+                                .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(225, 225, 225)
                         .addComponent(lbThem_28)
@@ -172,17 +172,19 @@ DefaultTableModel tableModel;
                         .addComponent(txtLuong_28, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(20, 20, 20)
                 .addComponent(btnThem_28, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(24, 24, 24))
         );
+
+        pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnThem_28ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThem_28ActionPerformed
-if(currentPos >=0){
+        if(currentPos >=0){
             dataList.get(currentPos).setMaNV(txtMaNV_28.getText());
             dataList.get(currentPos).setTenNV(txtTenNV_28.getText());
-            dataList.get(currentPos).setSDT(txtSdt_28.getText());   
+            dataList.get(currentPos).setSDT(txtSdt_28.getText());
             dataList.get(currentPos).setEmail(txtEmail_28.getText());
             dataList.get(currentPos).setSaLaRy(txtLuong_28.getText());
             NhanVienModify.update(dataList.get(currentPos));
@@ -197,7 +199,7 @@ if(currentPos >=0){
             );
             NhanVienModify.insert(nhanvien);
             dataList = NhanVienModify.getNhanVienList(null);
-        } 
+        }
         JOptionPane.showMessageDialog(this,"Thêm Nhán Viên thành công");
         showData();
         txtMaNV_28.setText("");
@@ -205,9 +207,43 @@ if(currentPos >=0){
         txtSdt_28.setText("");
         txtEmail_28.setText("");
         txtLuong_28.setText("");
-            // TODO add your handling code here:
+        // TODO add your handling code here:
     }//GEN-LAST:event_btnThem_28ActionPerformed
 
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(ThemPanel.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(ThemPanel.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(ThemPanel.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(ThemPanel.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new ThemPanel().setVisible(true);
+            }
+        });
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnThem_28;
