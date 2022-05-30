@@ -38,13 +38,12 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="Back245" alignment="0" min="-2" pref="185" max="-2" attributes="0"/>
                           <Component id="jScrollPane1" alignment="0" min="-2" pref="741" max="-2" attributes="0"/>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="TDT245" min="-2" pref="214" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="JlabelTong245" min="-2" pref="161" max="-2" attributes="0"/>
-                          </Group>
                       </Group>
                       <EmptySpace max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="JlabelTong245" min="-2" pref="499" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
               </Group>
           </Group>
@@ -67,17 +66,9 @@
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jScrollPane1" min="-2" pref="309" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <Component id="TDT245" min="-2" pref="31" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" attributes="0">
-                      <Component id="JlabelTong245" max="32767" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                  </Group>
-              </Group>
+              <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+              <Component id="JlabelTong245" pref="60" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -87,6 +78,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="H&#x1ec7; th&#x1ed1;ng"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Back245ActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="IN245">
       <Properties>
@@ -121,6 +115,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Xem Th&#x1ed1;ng k&#xea;"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Show245ActionPerformed"/>
+      </Events>
     </Component>
     <Container class="javax.swing.JPanel" name="jPanel1">
 
@@ -177,15 +174,12 @@
         </Component>
       </SubComponents>
     </Container>
-    <Component class="javax.swing.JLabel" name="TDT245">
+    <Component class="javax.swing.JLabel" name="JlabelTong245">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="24" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="T&#x1ed5;ng doanh thu :"/>
       </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="JlabelTong245">
     </Component>
   </SubComponents>
 </Form>

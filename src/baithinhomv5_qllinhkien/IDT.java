@@ -4,27 +4,65 @@
  */
 package baithinhomv5_qllinhkien;
 //import User.Linhkien;
+import Connection.ConnectionJDBC;
+import User.Linhkien;
+import User.Next1;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
 //import User.Action;
 import java.text.DecimalFormat;
+import java.util.Vector;
+import javax.swing.JOptionPane;
 /**
  *
  * @author ADMIN
  */
 public class IDT extends javax.swing.JFrame {
-
+Next1 next;
+    DefaultTableModel tbmModel;
+    Linhkien linhkien;
+    
     /**
      * Creates new form IDT
      */
-    //private List<Linhkien> Linhkiens;
-    //private DefaultTableModel tbModel;
     public IDT() {
         initComponents();
-        this.setLocationRelativeTo(null);
-        //tbModel= (DefaultTableModel) jTable1.getModel();
-        //showTable();
+        next = new Next1();
+        linhkien = new Linhkien();
+        tbmModel= new DefaultTableModel(){
+            @Override
+                public boolean isCellEditable(int row,int column){
+                    return false;
+                }
+        };
+        jTable245.setModel(tbmModel);
+        tbmModel.addColumn("Malk");
+        tbmModel.addColumn("TenLK");
+        tbmModel.addColumn("LoaiLK");
+        tbmModel.addColumn("Gia");
+        tbmModel.addColumn("SLG");
+        tbmModel.addColumn("NNH");
+        tbmModel.addColumn("MaSX");
+        
+        
+        
+        
+        
+        
+        
+        setTableData(next.getalllinhkiens());
+        Tong();
     }
+    private void setTableData(List<Linhkien> linhkiens){
+        for(Linhkien linhkien: linhkiens){
+            tbmModel.addRow(new Object[]{linhkien.getMaLK(), linhkien.getTenLK(),linhkien.getLoaiLK(),linhkien.getGia(),linhkien.getSLG(),linhkien.getNNH(),linhkien.getMaSX()});
+        }
+     
+    
+        }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -45,12 +83,16 @@ public class IDT extends javax.swing.JFrame {
         Endlabel245 = new javax.swing.JLabel();
         jLabelstart245 = new javax.swing.JLabel();
         End245 = new javax.swing.JTextField();
-        TDT245 = new javax.swing.JLabel();
         JlabelTong245 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         Back245.setText("Hệ thống");
+        Back245.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Back245ActionPerformed(evt);
+            }
+        });
 
         IN245.setText("In thống kê");
         IN245.addActionListener(new java.awt.event.ActionListener() {
@@ -73,6 +115,11 @@ public class IDT extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jTable245);
 
         Show245.setText("Xem Thống kê");
+        Show245.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Show245ActionPerformed(evt);
+            }
+        });
 
         Endlabel245.setText("Đến ngày :");
 
@@ -107,8 +154,7 @@ public class IDT extends javax.swing.JFrame {
                 .addGap(62, 62, 62))
         );
 
-        TDT245.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        TDT245.setText("Tổng doanh thu :");
+        JlabelTong245.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -127,12 +173,11 @@ public class IDT extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(Back245, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 741, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(TDT245, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(JlabelTong245, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 741, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(JlabelTong245, javax.swing.GroupLayout.PREFERRED_SIZE, 499, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -148,14 +193,9 @@ public class IDT extends javax.swing.JFrame {
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(41, 41, 41)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(TDT245, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(42, 42, 42))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(JlabelTong245, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addContainerGap())))
+                .addGap(33, 33, 33)
+                .addComponent(JlabelTong245, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
+                .addGap(21, 21, 21))
         );
 
         pack();
@@ -163,9 +203,88 @@ public class IDT extends javax.swing.JFrame {
 
     private void IN245ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IN245ActionPerformed
         // TODO add your handling code here:
-        new BaoCao().setVisible(true);
+        BaoCao bc= new BaoCao(Start245.getText(), End245.getText());
+        bc.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_IN245ActionPerformed
+
+    private void Show245ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Show245ActionPerformed
+        Statement st = null;
+        ResultSet rs = null;
+        String Date1=Start245.getText();
+        String Date2=End245.getText();
+        Connection connection=ConnectionJDBC.getJDBCConnection();
+        try {
+            // Câu lệnh xem dữ liệu
+            String sql = "select * from LinhKien  ";
+            
+            // Nếu tìm kiếm theo title
+            if (Start245.getText().length() > 0) 
+                if(End245.getText().length()>0)
+                    sql = sql + " where NNH BETWEEN '" + Date1 + " 00:00:00' AND '" + Date2 + " 23:59:59  '";
+                
+
+            // Tạo đối tượng thực thi câu lệnh Select
+            st = connection.createStatement();
+
+            // Thực thi 
+            rs = st.executeQuery(sql);
+            Vector data = null;
+
+            tbmModel.setRowCount(0);
+
+            // Nếu sách không tồn tại
+            if (rs.isBeforeFirst() == false) {
+                JOptionPane.showMessageDialog(this, "Không có đơn hàng trong ngày này");
+                return;
+            }
+
+            // Trong khi chưa hết dữ liệu
+            while (rs.next()) {
+                data = new Vector();
+                data.add(rs.getString("MaLK"));
+                data.add(rs.getString("TenLK"));
+                data.add(rs.getString("LLK"));
+                data.add(rs.getString("Gia"));
+                data.add(rs.getInt("SLG"));
+                data.add(rs.getDate("NNH"));
+                
+                data.add(rs.getString("MaSX"));
+                
+                
+                
+               
+                // Thêm một dòng vào table model
+                tbmModel.addRow(data);
+            }
+
+            jTable245.setModel(tbmModel); // Thêm dữ liệu vào table
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (connection != null) {
+                    connection.close();
+                }
+                if (st != null) {
+                    st.close();
+                }
+                if (rs != null) {
+                    rs.close();
+                }
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        }
+        Tong();                                 
+
+    }//GEN-LAST:event_Show245ActionPerformed
+
+    private void Back245ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Back245ActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+        new Quanlylinhkien_nhanvien().setVisible(true);
+    }//GEN-LAST:event_Back245ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -210,29 +329,20 @@ public class IDT extends javax.swing.JFrame {
     private javax.swing.JLabel JlabelTong245;
     private javax.swing.JButton Show245;
     private javax.swing.JTextField Start245;
-    private javax.swing.JLabel TDT245;
     private javax.swing.JLabel jLabelstart245;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable245;
     // End of variables declaration//GEN-END:variables
 
-    /*private void showTable() {
-        Linhkiens=new Action().getalllinhkiens() ;
-        tbModel.setRowCount(0);
-        for(Linhkien linhkien:Linhkiens){
-            tbModel.addRow(new Object[]
-            {jTable1.getRowCount()+1,linhkien.getMaLK(),linhkien.getTenLK(),linhkien.getLoaiLK(),linhkien.getMaSX(),linhkien.getNNH(),linhkien.getMaSX()}        
-            );
-            
-        }
-    }*/
+    
     private void Tong(){
         DecimalFormat x= new DecimalFormat("###,###,###");
         int Tong=0;
         for(int i=0;i<jTable245.getRowCount();i++){
-            Tong=Integer.parseInt(jTable245.getValueAt(i, 2).toString());
+            Tong+=Integer.parseInt(jTable245.getValueAt(i, 3).toString());
         }
         JlabelTong245.setText("Tổng doanh thu :"+ x.format(Tong)+" "+"VND");
     }
+
 }

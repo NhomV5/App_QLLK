@@ -7,6 +7,7 @@ package baithinhomv5_qllinhkien;
 
 import baithinhomv5_qllinhkien.ViewFrame_Chu;
 
+
 /**
  *
  * @author Dell
@@ -140,13 +141,13 @@ public class trangchuchinhquanly extends javax.swing.JFrame {
 
     private void qlnhanvienbtn237ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_qlnhanvienbtn237ActionPerformed
         // TODO add your handling code here:
-        new Quanlynhanvien().setVisible(true);
+        new QuanLiNV().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_qlnhanvienbtn237ActionPerformed
 
     private void qllinhkienbtn237ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_qllinhkienbtn237ActionPerformed
         // TODO add your handling code here:
-        new Quanlylinhkien().setVisible(true);
+        new QuanlyLK().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_qllinhkienbtn237ActionPerformed
 
