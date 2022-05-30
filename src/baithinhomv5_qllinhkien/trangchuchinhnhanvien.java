@@ -133,7 +133,7 @@ public class trangchuchinhnhanvien extends javax.swing.JFrame {
 
     private void qllinhkienbtn237ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_qllinhkienbtn237ActionPerformed
         // TODO add your handling code here:
-        new ViewFrame_Chu().setVisible(true);
+        new Quanlylinhkien_nhanvien().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_qllinhkienbtn237ActionPerformed
 

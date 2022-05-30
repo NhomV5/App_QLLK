@@ -147,7 +147,7 @@ public class trangchuchinhquanly extends javax.swing.JFrame {
 
     private void qllinhkienbtn237ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_qllinhkienbtn237ActionPerformed
         // TODO add your handling code here:
-        new Quanlylinhkien().setVisible(true);
+        new QuanlyLK().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_qllinhkienbtn237ActionPerformed
 

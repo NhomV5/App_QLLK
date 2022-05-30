@@ -30,8 +30,9 @@ public class Action {
                 linhkien.setLoaiLK(rs.getString("LLK"));
                 linhkien.setGia(rs.getString("Gia"));
                 linhkien.setSLG(rs.getInt("SLG"));
-                linhkien.setNNH(rs.getDate("NNH"));
                 linhkien.setMaSX(rs.getString("MaSX"));
+                linhkien.setNNH(rs.getDate("NNH"));
+                
                 
                 
                 

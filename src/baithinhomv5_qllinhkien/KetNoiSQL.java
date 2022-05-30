@@ -10,7 +10,7 @@ package baithinhomv5_qllinhkien;
  * @author ADMIN
  */
 public interface KetNoiSQL {
-    String URL="jdbc:jtds:sqlserver://DESKTOP-S33MT4O:1433/NhanVien;instance=SQLEXPRESS";
+    String URL="jdbc:jtds:sqlserver://DESKTOP-S33MT4O:1433/QUANLYDT;";
     String USERNAME = "sa";
     String PASSWORD = "123456";
  } 

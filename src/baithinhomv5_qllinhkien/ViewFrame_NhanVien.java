@@ -7,9 +7,11 @@ package baithinhomv5_qllinhkien;
 
 import Connection.ConnectionJDBC;
 import User.Linhkien;
+import User.Next1;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.List;
 import java.util.Vector;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -23,12 +25,14 @@ public class ViewFrame_NhanVien extends javax.swing.JFrame {
     /**
      * Creates new form ViewFrame_NhanVien
      */
-    private trangchuchinhnhanvien Trangchuchinhnhanvien;
+    
     DefaultTableModel defaultTableModel;
     Linhkien lk;
+    Next1 next1;
     
     public ViewFrame_NhanVien() {
         initComponents();
+        next1= new Next1();
         defaultTableModel = new DefaultTableModel() {
             @Override
             public boolean isCellEditable(int row, int column) {
@@ -38,11 +42,20 @@ public class ViewFrame_NhanVien extends javax.swing.JFrame {
         traCuuTable227.setModel(defaultTableModel);
         defaultTableModel.addColumn("Mã linh kiện");
         defaultTableModel.addColumn("Tên linh kiện");
-        defaultTableModel.addColumn("Số lượng tồn kho");
         defaultTableModel.addColumn("Loại linh kiện");
+        defaultTableModel.addColumn("Số lượng tồn kho");
         defaultTableModel.addColumn("Giá");
+        defaultTableModel.addColumn("Ngày nhập");
+        defaultTableModel.addColumn("Mã nhà sản xuất");
+        setTableData(next1.getalllinhkiens());
+        
     }
 
+    private void setTableData(List<Linhkien> linhkiens) {
+        for (Linhkien linhkien : linhkiens) {
+            defaultTableModel.addRow(new Object[]{linhkien.getMaLK(), linhkien.getTenLK(),linhkien.getLoaiLK(),linhkien.getSLG(),linhkien.getGia(),linhkien.getNNH(),linhkien.getMaSX()});
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -99,7 +112,7 @@ public class ViewFrame_NhanVien extends javax.swing.JFrame {
 
         SearchComboBox227.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         SearchComboBox227.setForeground(new java.awt.Color(255, 102, 102));
-        SearchComboBox227.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Mã linh kiện", "Tên linh kiện", "Số lượng tồn kho", "Loại linh kiện", "Giá", " ", " " }));
+        SearchComboBox227.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Mã linh kiện", "Tên linh kiện", "Số lượng tồn kho", "Loại linh kiện", "Giá", "Ngày Nhập", "Mã NSX", " " }));
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 102, 102));
@@ -108,6 +121,7 @@ public class ViewFrame_NhanVien extends javax.swing.JFrame {
         traCuuButton228.setBackground(new java.awt.Color(0, 153, 153));
         traCuuButton228.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         traCuuButton228.setForeground(new java.awt.Color(255, 102, 102));
+        traCuuButton228.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/icons8_search_30px_1.png"))); // NOI18N
         traCuuButton228.setText("Tra Cứu");
         traCuuButton228.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -118,6 +132,7 @@ public class ViewFrame_NhanVien extends javax.swing.JFrame {
         quayLaiButton228.setBackground(new java.awt.Color(0, 153, 153));
         quayLaiButton228.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         quayLaiButton228.setForeground(new java.awt.Color(255, 102, 102));
+        quayLaiButton228.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/icons8_exit_sign_30px.png"))); // NOI18N
         quayLaiButton228.setText("Quay Lại");
         quayLaiButton228.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -144,13 +159,11 @@ public class ViewFrame_NhanVien extends javax.swing.JFrame {
                 .addContainerGap(102, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 621, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(186, 186, 186))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(traCuuButton228)
-                        .addGap(41, 41, 41)
-                        .addComponent(quayLaiButton228)
-                        .addGap(96, 96, 96))))
+                        .addComponent(traCuuButton228, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(30, 30, 30)
+                        .addComponent(quayLaiButton228, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 728, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(79, 79, 79))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -165,7 +178,7 @@ public class ViewFrame_NhanVien extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(thongTin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel11))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 97, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 83, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(43, 43, 43)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -209,6 +222,15 @@ public class ViewFrame_NhanVien extends javax.swing.JFrame {
             if (SearchComboBox227.getSelectedItem() == "Giá") {
                 sql = sql + " where Gia like N'%" + thongTin.getText() + "%'";
             }
+            if (SearchComboBox227.getSelectedItem() == "Mã NSX") {
+                sql = sql + " where MASX like N'%" + thongTin.getText() + "%'";
+            }
+
+            // Nếu tìm kiếm theo Ngày Nhập hàng
+            if (SearchComboBox227.getSelectedItem() == "Ngày Nhập") {
+                String ngayString = thongTin.getText();
+                sql = sql + " where NNH like '" + ngayString + "'";
+            }
 
             
     
@@ -232,9 +254,11 @@ public class ViewFrame_NhanVien extends javax.swing.JFrame {
                 data = new Vector();
                 data.add(rs.getString("MaLK"));
                 data.add(rs.getString("TenLK"));
-                data.add(rs.getInt("SLG"));
                 data.add(rs.getString("LLK"));
+                data.add(rs.getInt("SLG"));
                 data.add(rs.getInt("Gia"));
+                data.add(rs.getString("NNH"));
+                data.add(rs.getString("MaSX"));
 
                 // Thêm một dòng vào table model
                 defaultTableModel.addRow(data);
@@ -261,8 +285,7 @@ public class ViewFrame_NhanVien extends javax.swing.JFrame {
     }//GEN-LAST:event_traCuuButton228ActionPerformed
 
     private void quayLaiButton228ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quayLaiButton228ActionPerformed
-       Trangchuchinhnhanvien = new trangchuchinhnhanvien();
-       Trangchuchinhnhanvien.setVisible(true);
+       new trangchuchinhnhanvien().setVisible(true);
        this.dispose();
     }//GEN-LAST:event_quayLaiButton228ActionPerformed
 

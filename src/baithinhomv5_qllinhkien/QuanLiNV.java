@@ -87,6 +87,11 @@ public class QuanLiNV extends javax.swing.JFrame {
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/icons8_fire_exit_50px_1.png"))); // NOI18N
         jButton1.setText("Thoát");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 420, 270, 100));
 
         pack();
@@ -119,6 +124,12 @@ public class QuanLiNV extends javax.swing.JFrame {
         }
         panelView_28.setSelectedComponent(mXoa);
     }//GEN-LAST:event_btnXoa_28ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        new trangchuchinhquanly().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments

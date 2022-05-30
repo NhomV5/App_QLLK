@@ -25,7 +25,7 @@ public class login extends javax.swing.JFrame {
         initComponents();
          setLocationRelativeTo(null);
     }
-    String URL="jdbc:jtds:sqlserver://DESKTOP-A3QJQ78:1433/DangNhap;instance=SQLEXPRESS";
+    String URL="jdbc:jtds:sqlserver://DESKTOP-S33MT4O:1433/QUANLYDT;";
     String USERNAME = "sa";
     String PASSWORD = "123456";
     /**
@@ -91,7 +91,7 @@ public class login extends javax.swing.JFrame {
 
         cbbchucvu_243.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         cbbchucvu_243.setForeground(new java.awt.Color(255, 102, 51));
-        cbbchucvu_243.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Chủ", "Nhân Viên", " " }));
+        cbbchucvu_243.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Chủ", "Nhân Viên", "" }));
         cbbchucvu_243.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbbchucvu_243ActionPerformed(evt);
@@ -136,7 +136,7 @@ public class login extends javax.swing.JFrame {
         btnclear_243.setBackground(new java.awt.Color(255, 102, 51));
         btnclear_243.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         btnclear_243.setForeground(new java.awt.Color(255, 255, 255));
-        btnclear_243.setText("Clear");
+        btnclear_243.setText("Thoát");
         btnclear_243.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnclear_243ActionPerformed(evt);
@@ -151,28 +151,29 @@ public class login extends javax.swing.JFrame {
         jPanel2_243Layout.setHorizontalGroup(
             jPanel2_243Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2_243Layout.createSequentialGroup()
-                .addGap(22, 22, 22)
                 .addGroup(jPanel2_243Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3_243)
-                    .addComponent(jLabel6)
-                    .addComponent(jLabel4_243))
-                .addGap(26, 26, 26)
-                .addGroup(jPanel2_243Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtmatkhau_243, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txttaikhoan_243, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cbbchucvu_243, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel2_243Layout.createSequentialGroup()
-                        .addGap(39, 39, 39)
-                        .addGroup(jPanel2_243Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel2_243, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel7_243, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(47, Short.MAX_VALUE))
-            .addGroup(jPanel2_243Layout.createSequentialGroup()
-                .addGap(56, 56, 56)
-                .addComponent(btndangnhap_243)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnclear_243, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                        .addGap(22, 22, 22)
+                        .addGroup(jPanel2_243Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3_243)
+                            .addComponent(jLabel6)
+                            .addComponent(jLabel4_243))
+                        .addGap(26, 26, 26)
+                        .addGroup(jPanel2_243Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtmatkhau_243, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txttaikhoan_243, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cbbchucvu_243, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel2_243Layout.createSequentialGroup()
+                                .addGap(39, 39, 39)
+                                .addGroup(jPanel2_243Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jLabel2_243, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabel7_243, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                    .addGroup(jPanel2_243Layout.createSequentialGroup()
+                        .addGap(56, 56, 56)
+                        .addComponent(btndangnhap_243)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnclear_243, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
         jPanel2_243Layout.setVerticalGroup(
             jPanel2_243Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -240,7 +241,7 @@ public class login extends javax.swing.JFrame {
                     String username=txttaikhoan_243.getText();
                     String password=txtmatkhau_243.getText();
                     Statement stm=con.createStatement();
-                    String sql="select * from Chu where USERNAME='"+username+"' and PASS='"+password+"'";
+                    String sql="select * from ChuUser where username='"+username+"' and pass='"+password+"'";
                     ResultSet rs=stm.executeQuery(sql);
                     if(txttaikhoan_243.getText().equals("")|txtmatkhau_243.getText().equals("")){
                         JOptionPane.showMessageDialog(this,"Chưa nhập user và password");
@@ -262,11 +263,12 @@ public class login extends javax.swing.JFrame {
                     String username=txttaikhoan_243.getText();
                     String password=txtmatkhau_243.getText();
                     Statement stm=con.createStatement();
-                    String sql="select * from NhanVien where USERNAME='"+username+"' and PASS='"+password+"'";
+                    String sql="select * from NhanVienUser where username='"+username+"' and pass='"+password+"'";
                     ResultSet rs=stm.executeQuery(sql);
                     if(txttaikhoan_243.getText().equals("")|txtmatkhau_243.getText().equals("")){
                         JOptionPane.showMessageDialog(this,"Chưa nhập user và password");
                     }
+                  
                     else if(rs.next()){
                         new trangchuchinhnhanvien().setVisible(true);
                         this.dispose();
@@ -282,8 +284,7 @@ public class login extends javax.swing.JFrame {
 
     private void btnclear_243ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnclear_243ActionPerformed
         // TODO add your handling code here:
-        txttaikhoan_243.setText("");
-        txtmatkhau_243.setText("");
+        System.exit(0);
     }//GEN-LAST:event_btnclear_243ActionPerformed
 
     /**

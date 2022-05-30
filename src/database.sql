@@ -15,15 +15,27 @@ create table Users(
 	password varchar(30),
 	QH nvarchar(30)
 )
-create table NHANVIEN(
-	MaNV char(12) primary key,
-	TenNV nvarchar(50),
-	NgSinh date,
-	SDT char(10),
-	Gtinh bit ,
-	luong money,
-) 
+CREATE TABLE NhanVien(
+  MaNV          varchar(7) primary key,
+  TenNV         nvarchar(50),
+  SDT          varchar(11),
+  Email         varchar(40),
+  SaLaRy        money
+)
 
+CREATE TABLE ChuUser(
+	username varchar(50),
+	pass varchar(50)
+)
+CREATE TABLE NhanVienUser(
+	username varchar(50),
+	pass varchar(50)
+)
+insert into ChuUser
+values('Admin01','admin01')
+	
+insert into NhanVienUser
+values('Nv01','nv01')
 
 
 insert into LinhKien(MaLK,TenLK,SLG,LLK,Gia,NNH)
@@ -39,7 +51,14 @@ values('Admin01','123456',N'Quản lý'),
 	  ('nhanvien01','123456',N'Quản lý'),
 	  ('nhanvien02','123456',N'Quản lý')
 
-insert into NHANVIEN(MaNV,TenNV,NgSinh,SDT,Gtinh,luong)
-values('nv01',N'Nguyễn Văn Phát','12/11/2002','0872672672',1,1500000),
-	  ('nv02',N'Đặng Văn Luận','2/10/2002','0872622272',1,1500000),
-	  ('nv03',N'Lưu Nguyễn Trọng Nghĩa','3/16/2002','0872673672',1,1500000)
+INSERT INTO NhanVien
+VALUES ('NV00001',N'Trần Gia Khang','0899885289','khangtra@gmail.com','5000000'),
+		('NV00002',N'Nguyễn Thanh Khải','0899885639','khai123@gmail.com','5000000'),
+		('NV00003',N'Lê Minh Quốc','0389885289','uckj@gmail.com','5000000'),
+		('NV00004',N'Phạm Hoàng Khánh','0892885289','khanhkkk@ute.udn.vn','50000000'),
+		('NV00005',N'Trần Hà Vy','0899885631','vyyakdi@ute.udn.vn','50000000'),
+		('NV00006',N'Phan Thu Uyên','0899888971','uyennn@ute.udn.vn','50000000'),
+		('NV00007',N'Đặng Kiều Oanh','0899885565','oanhvip123@gmail.com','50000000'),
+		('NV00008',N' Tạ Trường An','0897797646','an123c@ute.udn.vn','50000000'),
+		('NV00009',N' Trần Hữu Đạt','0995554616','dat09@gmail.com','50000000'),
+		('NV00010',N'Hồ Thanh Hưng','0753369554','hung@ute.udn.vn','50000000')

@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package baithinhomv5_qllinhkien;
+
 import java.awt.Color;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -11,17 +12,17 @@ import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
-
 /**
  *
- * @author kvan2
+ * @author ADMIN
  */
-public class SuaPanel extends javax.swing.JFrame {
-    DefaultTableModel tableModel;
+public class SuaPanel extends javax.swing.JPanel {
+
+  DefaultTableModel tableModel;
     List<NhanVien> dataList;
     int currentPos = -1;
     /**
-     * Creates new form SuaPanel
+     * Creates new form PanelSua
      */
     public SuaPanel() {
         initComponents();
@@ -56,7 +57,7 @@ public class SuaPanel extends javax.swing.JFrame {
             }
         });
     }
-    private void showData() {
+     private void showData() {
         tableModel.setRowCount(0);
         for (NhanVien nhanvien : dataList) {
             tableModel.addRow(new Object[]{
@@ -64,7 +65,7 @@ public class SuaPanel extends javax.swing.JFrame {
                 nhanvien.getMaNV(),
                 nhanvien.getTenNV(),
                 nhanvien.getSDT(),
-                nhanvien.getEmail(),
+                    nhanvien.getEmail(),
                 nhanvien.getSaLaRy()
             });
         }
@@ -79,6 +80,9 @@ public class SuaPanel extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        lbTieude_28 = new javax.swing.JLabel();
+        txtLuong_28 = new javax.swing.JTextField();
+        lbLuong_28 = new javax.swing.JLabel();
         txtSdt_28 = new javax.swing.JTextField();
         lbSdt_28 = new javax.swing.JLabel();
         txtEmail_28 = new javax.swing.JTextField();
@@ -87,14 +91,15 @@ public class SuaPanel extends javax.swing.JFrame {
         txtTenNV_28 = new javax.swing.JTextField();
         txtMaNV_28 = new javax.swing.JTextField();
         lbManhanvien_28 = new javax.swing.JLabel();
-        lbTieude_28 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tableNV_28 = new javax.swing.JTable();
-        txtLuong_28 = new javax.swing.JTextField();
-        lbLuong_28 = new javax.swing.JLabel();
         btnCapnhat28 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        lbTieude_28.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        lbTieude_28.setForeground(new java.awt.Color(255, 51, 102));
+        lbTieude_28.setText("Cập Nhật Nhân Viên");
+
+        lbLuong_28.setText("Lương:");
 
         lbSdt_28.setText("SĐT:");
 
@@ -110,10 +115,6 @@ public class SuaPanel extends javax.swing.JFrame {
 
         lbManhanvien_28.setText("Mã Nhân Viên:");
 
-        lbTieude_28.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        lbTieude_28.setForeground(new java.awt.Color(255, 51, 102));
-        lbTieude_28.setText("Cập Nhật Nhân Viên");
-
         tableNV_28.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -124,8 +125,6 @@ public class SuaPanel extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tableNV_28);
 
-        lbLuong_28.setText("Lương:");
-
         btnCapnhat28.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/icons8_upgrade_40px.png"))); // NOI18N
         btnCapnhat28.setText("Cập Nhật");
         btnCapnhat28.addActionListener(new java.awt.event.ActionListener() {
@@ -134,8 +133,8 @@ public class SuaPanel extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
@@ -177,7 +176,7 @@ public class SuaPanel extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 623, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(31, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -209,11 +208,9 @@ public class SuaPanel extends javax.swing.JFrame {
                 .addGap(30, 30, 30)
                 .addComponent(btnCapnhat28, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 46, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 158, Short.MAX_VALUE)
                 .addContainerGap())
         );
-
-        pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtEmail_28ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEmail_28ActionPerformed
@@ -221,7 +218,7 @@ public class SuaPanel extends javax.swing.JFrame {
     }//GEN-LAST:event_txtEmail_28ActionPerformed
 
     private void btnCapnhat28ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCapnhat28ActionPerformed
-        StringBuilder sb=new StringBuilder();
+ StringBuilder sb=new StringBuilder();
         if(txtMaNV_28.getText().equals("")){
             sb.append("Bạn chưa nhập mã nhân viên cần");
             txtMaNV_28.setBackground(Color.red);
@@ -239,50 +236,17 @@ public class SuaPanel extends javax.swing.JFrame {
             nv.setSDT(txtSdt_28.getText());
             nv.setEmail(txtEmail_28.getText());
             nv.setSaLaRy(txtLuong_28.getText());
-
+   
+            
             NhanVienModify dao=new NhanVienModify();
             dao.update(nv);
-            JOptionPane.showMessageDialog(this,"Cập nhật thành công");
+             JOptionPane.showMessageDialog(this,"Cập nhật thành công");
         }catch(Exception e){
             JOptionPane.showMessageDialog(this,"Error: " + e.getMessage());
             e.printStackTrace();
         }        // TODO add your handling code here:
     }//GEN-LAST:event_btnCapnhat28ActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(SuaPanel.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(SuaPanel.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(SuaPanel.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(SuaPanel.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new SuaPanel().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCapnhat28;

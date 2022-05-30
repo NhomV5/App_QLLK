@@ -4,19 +4,22 @@
  * and open the template in the editor.
  */
 package baithinhomv5_qllinhkien;
+
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+
 /**
  *
- * @author kvan2
+ * @author ADMIN
  */
-public class XoaPanel extends javax.swing.JFrame {
-    DefaultTableModel tableModel;
+public class XoaPanel extends javax.swing.JPanel {
+
+  DefaultTableModel tableModel;
     List<NhanVien> dataList;
     int currentPos = -1;
     /**
-     * Creates new form XoaPanel
+     * Creates new form PanelXoaLinhKien
      */
     public XoaPanel() {
         initComponents();
@@ -24,7 +27,7 @@ public class XoaPanel extends javax.swing.JFrame {
         dataList = NhanVienModify.getNhanVienList(null);
         showData();
     }
-    private void showData() {
+     private void showData() {
         tableModel.setRowCount(0);
         for (NhanVien nhanvien : dataList) {
             tableModel.addRow(new Object[]{
@@ -53,8 +56,6 @@ public class XoaPanel extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tableNV_28 = new javax.swing.JTable();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
         lbXoa_28.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         lbXoa_28.setForeground(new java.awt.Color(51, 51, 255));
         lbXoa_28.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -80,8 +81,8 @@ public class XoaPanel extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tableNV_28);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
@@ -97,7 +98,7 @@ public class XoaPanel extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(248, 248, 248)
                         .addComponent(lbXoa_28)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(27, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -111,11 +112,9 @@ public class XoaPanel extends javax.swing.JFrame {
                         .addComponent(txtMaNV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel3)))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 167, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 149, Short.MAX_VALUE)
                 .addContainerGap())
         );
-
-        pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnXoa_28ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXoa_28ActionPerformed
@@ -133,40 +132,6 @@ public class XoaPanel extends javax.swing.JFrame {
         txtMaNV.setText("");
     }//GEN-LAST:event_btnXoa_28ActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(XoaPanel.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(XoaPanel.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(XoaPanel.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(XoaPanel.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new XoaPanel().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnXoa_28;

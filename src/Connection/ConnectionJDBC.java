@@ -18,9 +18,9 @@ public class ConnectionJDBC {
         Connection con = null;
         try {
             Class.forName("net.sourceforge.jtds.jdbc.Driver");
-            String dbUrl = "jdbc:jtds:sqlserver://DESKTOP-14N8JCK:1433/QUANLYDT;instance=SQLEXPRESS;";
+            String dbUrl = "jdbc:jtds:sqlserver://DESKTOP-S33MT4O:1433/QUANLYDT;";
             String user="sa";
-            String password="123";
+            String password="123456";
             con = DriverManager.getConnection(dbUrl,user,password);
             if(con!=null)
                 System.out.println("Kết nối thành công!");

@@ -4,8 +4,7 @@
  * and open the template in the editor.
  */
 package baithinhomv5_qllinhkien;
-import baithinhomv5_qllinhkien.NhanVien;
-import baithinhomv5_qllinhkien.KetNoiSQL;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -15,6 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
 /**
  *
  * @author kvan2

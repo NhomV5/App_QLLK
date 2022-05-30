@@ -7,6 +7,7 @@ package baithinhomv5_qllinhkien;
 
 import Connection.ConnectionJDBC;
 import User.Linhkien;
+import User.Next1;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -24,9 +25,11 @@ public class ViewFrame_Chu extends javax.swing.JFrame {
     private trangchuchinhquanly Trangchuchinhquanly;
     DefaultTableModel defaultTableModel;
     Linhkien lk;
+    Next1 next1;
 
     public ViewFrame_Chu() {
         initComponents();
+        next1= new Next1();
         defaultTableModel = new DefaultTableModel() {
             @Override
             public boolean isCellEditable(int row, int column) {
@@ -36,17 +39,18 @@ public class ViewFrame_Chu extends javax.swing.JFrame {
         traCuuTable227.setModel(defaultTableModel);
         defaultTableModel.addColumn("Mã linh kiện");
         defaultTableModel.addColumn("Tên linh kiện");
-        defaultTableModel.addColumn("Số lượng tồn kho");
         defaultTableModel.addColumn("Loại linh kiện");
+        defaultTableModel.addColumn("Số lượng tồn kho");
         defaultTableModel.addColumn("Giá");
-        defaultTableModel.addColumn("Mã nhà sản xuất");
         defaultTableModel.addColumn("Ngày nhập");
-
+        defaultTableModel.addColumn("Mã nhà sản xuất");
+        setTableData(next1.getalllinhkiens());
+        
     }
 
     private void setTableData(List<Linhkien> linhkiens) {
         for (Linhkien linhkien : linhkiens) {
-            defaultTableModel.addRow(new Object[]{lk.getMaLK(), lk.getTenLK(), lk.getSLG(), lk.getLoaiLK(), lk.getMaSX(), lk.getNNH()});
+            defaultTableModel.addRow(new Object[]{linhkien.getMaLK(), linhkien.getTenLK(),linhkien.getLoaiLK(),linhkien.getSLG(),linhkien.getGia(),linhkien.getNNH(),linhkien.getMaSX()});
         }
     }
 
@@ -96,6 +100,7 @@ public class ViewFrame_Chu extends javax.swing.JFrame {
         traCuuButton227.setBackground(new java.awt.Color(0, 153, 153));
         traCuuButton227.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         traCuuButton227.setForeground(new java.awt.Color(255, 102, 51));
+        traCuuButton227.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/icons8_search_30px_1.png"))); // NOI18N
         traCuuButton227.setText("Tra Cứu");
         traCuuButton227.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -106,11 +111,18 @@ public class ViewFrame_Chu extends javax.swing.JFrame {
         inDTButton227.setBackground(new java.awt.Color(0, 153, 153));
         inDTButton227.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         inDTButton227.setForeground(new java.awt.Color(255, 102, 51));
+        inDTButton227.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/icons8_update_30px.png"))); // NOI18N
         inDTButton227.setText("Cập Nhật");
+        inDTButton227.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                inDTButton227ActionPerformed(evt);
+            }
+        });
 
         quayLaiButton227.setBackground(new java.awt.Color(0, 153, 153));
         quayLaiButton227.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         quayLaiButton227.setForeground(new java.awt.Color(255, 102, 51));
+        quayLaiButton227.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/icons8_exit_sign_30px.png"))); // NOI18N
         quayLaiButton227.setText("Quay Lại");
         quayLaiButton227.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -163,12 +175,12 @@ public class ViewFrame_Chu extends javax.swing.JFrame {
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 808, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(62, 62, 62))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(traCuuButton227)
+                        .addComponent(traCuuButton227, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(inDTButton227)
+                        .addComponent(inDTButton227, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(quayLaiButton227, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(102, 102, 102))))
+                        .addComponent(quayLaiButton227, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(27, 27, 27))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -185,12 +197,12 @@ public class ViewFrame_Chu extends javax.swing.JFrame {
                     .addComponent(thongTin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(53, 53, 53)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(quayLaiButton227, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(inDTButton227, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(traCuuButton227, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(35, 35, 35))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(quayLaiButton227, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(traCuuButton227, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(inDTButton227))
+                .addGap(28, 28, 28))
         );
 
         pack();
@@ -298,6 +310,12 @@ public class ViewFrame_Chu extends javax.swing.JFrame {
         Trangchuchinhquanly.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_quayLaiButton227ActionPerformed
+
+    private void inDTButton227ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inDTButton227ActionPerformed
+        // TODO add your handling code here:
+        new QuanlyLK().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_inDTButton227ActionPerformed
 
     /**
      * @param args the command line arguments
